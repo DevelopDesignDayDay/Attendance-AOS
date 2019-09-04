@@ -29,4 +29,5 @@ dependencies {
     kapt Libraries.daggerProcessor
 
     implementation Libraries.firebaseDataBase
+    implementation Libraries.zxing
 }
