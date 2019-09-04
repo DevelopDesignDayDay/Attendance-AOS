@@ -18,6 +18,8 @@ object Releases {
 object Versions {
     val kotlin = "1.3.50"
     val gradle = "3.5.0"
+    val googleService = "4.3.1"
+    val fabric = "1.29.0"
     val compileSdk = 29
     val minSdk = 23
     val targetSdk = 29
@@ -32,13 +34,25 @@ object Versions {
     val gson = "2.8.5"
     val okHttp = "4.1.0"
     val dagger = "2.24"
-    val lifecycle = "2.1.0-alpha04"
+    val lifecycle = "2.0.0"
     val recyclerview = "1.0.0"
     val glide = "4.9.0"
+    val analytics = "17.2.0"
+    val firebaseCore = "17.0.0"
+    val crashlytics = "2.10.1"
+    val firebaseDataBase = "19.0.0"
+    val firebaseMessage = "19.0.1"
 
 }
 
 object Libraries {
+    // Google Service
+    val firebaseAnalytics = "com.google.firebase:firebase-analytics:${Versions.analytics}"
+    val firebaseCore = "com.google.firebase:firebase-core:${Versions.firebaseCore}"
+    val firebaseCrashlytics = "com.crashlytics.sdk.android:crashlytics:${Versions.crashlytics}"
+    val firebaseDataBase = "com.google.firebase:firebase-database:${Versions.firebaseDataBase}"
+    val firebaseMessage = "com.google.firebase:firebase-messaging:${Versions.firebaseMessage}"
+
     // Dagger2
     val dagger = "com.google.dagger:dagger:${Versions.dagger}"
     val daggerAndroid = "com.google.dagger:dagger-android:${Versions.dagger}"

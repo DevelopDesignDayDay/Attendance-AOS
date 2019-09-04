@@ -4,6 +4,7 @@ apply plugin: 'kotlin-kapt'
 apply from: '../android_commons.gradle'
 apply from: '../android_core_dependencies.gradle'
 apply from: '../android_network_dependencies.gradle'
+
 android {
     defaultConfig {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -26,4 +27,6 @@ dependencies {
     implementation Libraries.daggerAndroidSupport
     kapt Libraries.daggerCompiler
     kapt Libraries.daggerProcessor
+
+    implementation Libraries.firebaseDataBase
 }
