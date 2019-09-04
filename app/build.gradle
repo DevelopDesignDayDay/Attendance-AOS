@@ -1,7 +1,10 @@
 apply plugin: 'com.android.application'
 apply from: '../android_commons.gradle'
 apply from: '../android_network_dependencies.gradle'
+apply from: '../android_google_service_dependencies.gradle'
+apply plugin: 'com.google.gms.google-services'
 apply plugin: 'kotlin-kapt'
+
 android {
     defaultConfig {
         applicationId ApplicationId.id
