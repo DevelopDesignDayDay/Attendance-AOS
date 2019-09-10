@@ -8,7 +8,7 @@ apply plugin: 'kotlin-kapt'
 android {
     defaultConfig {
         applicationId ApplicationId.id
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.signup_progress_background.runner.AndroidJUnitRunner"
     }
     dataBinding {
         enabled true

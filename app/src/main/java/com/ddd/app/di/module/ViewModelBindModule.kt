@@ -3,6 +3,7 @@ package com.ddd.app.di.module
 import androidx.lifecycle.ViewModel
 import com.ddd.app.di.ViewModelKey
 import com.ddd.presentation.ui.MainViewModel
+import com.ddd.presentation.ui.signup.SignUpViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -13,4 +14,9 @@ abstract class ViewModelBindModule {
     @IntoMap
     @ViewModelKey(MainViewModel::class)
     abstract fun bindMainViewmodel(mainViewModel: MainViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(SignUpViewModel::class)
+    abstract fun bindSignUpViewModel(signUpViewModel: SignUpViewModel): ViewModel
 }
