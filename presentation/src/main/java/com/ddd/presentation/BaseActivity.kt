@@ -6,7 +6,7 @@ import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModel
 import dagger.android.support.DaggerAppCompatActivity
 
-abstract class BaseActivity<VM : ViewModel, B : ViewDataBinding> : DaggerAppCompatActivity() {
+    abstract class BaseActivity<VM : ViewModel, B : ViewDataBinding> : DaggerAppCompatActivity() {
     abstract val layoutResource: Int
     abstract val viewModel: VM
     lateinit var viewDataBinding: B

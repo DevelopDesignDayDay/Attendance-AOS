@@ -4,10 +4,11 @@ apply plugin: 'kotlin-kapt'
 apply from: '../android_commons.gradle'
 apply from: '../android_core_dependencies.gradle'
 apply from: '../android_network_dependencies.gradle'
+apply plugin: 'kotlin-android-extensions'
 
 android {
     defaultConfig {
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.signup_progress_background.runner.AndroidJUnitRunner"
     }
     dataBinding {
         enabled true
