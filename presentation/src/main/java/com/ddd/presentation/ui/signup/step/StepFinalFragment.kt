@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.ddd.presentation.R
-import com.ddd.presentation.databinding.FragmentStepNameBinding
+import com.ddd.presentation.databinding.FragmentStepFinalBinding
 import com.ddd.presentation.ui.signup.SignUpActivity
 
 class StepFinalFragment : Fragment() {
@@ -22,7 +22,7 @@ class StepFinalFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return DataBindingUtil.inflate<FragmentStepNameBinding>(
+        return DataBindingUtil.inflate<FragmentStepFinalBinding>(
             inflater,
             R.layout.fragment_step_final,
             container,
