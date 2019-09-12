@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -11,186 +12,136 @@
         <variable
             name="stepFinalFragment"
             type="com.ddd.presentation.ui.signup.step.StepFinalFragment" />
+
+        <variable
+            name="designer"
+            type="com.ddd.presentation.ui.signup.Position" />
+
+        <variable
+            name="aos"
+            type="com.ddd.presentation.ui.signup.Position" />
+
+        <variable
+            name="ios"
+            type="com.ddd.presentation.ui.signup.Position" />
+
+        <variable
+            name="backEnd"
+            type="com.ddd.presentation.ui.signup.Position" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/tv_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="66dp"
-            android:text="What is the Position"
-            android:textColor="#151515"
-            android:textSize="24dp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="SpUsage" />
-
-        <TextView
-            android:id="@+id/tv_subtitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="17dp"
-            android:text="You always can change"
-            android:textColor="#919296"
-            android:textSize="15dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_title"
-            tools:ignore="SpUsage" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraint_designer"
-            android:layout_width="0dp"
+        <ScrollView
+            android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="49dp"
-            android:background="@drawable/sign_up_position_card_background"
-            app:layout_constraintBottom_toTopOf="@+id/constraint_ios"
-            app:layout_constraintEnd_toStartOf="@+id/constraint_aos"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_subtitle">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="12dp"
-                android:background="@drawable/ic_sign_up_check_off"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableTop="@drawable/ic_sign_up_designer"
-                android:drawablePadding="20dp"
-                android:text="Designer"
-                android:textColor="#333333"
-                android:textSize="15dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraint_aos"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="16dp"
-            android:background="@drawable/sign_up_position_card_background"
-            app:layout_constraintBottom_toBottomOf="@+id/constraint_designer"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/constraint_designer"
-            app:layout_constraintTop_toTopOf="@+id/constraint_designer">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="12dp"
-                android:background="@drawable/ic_sign_up_check_off"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableTop="@drawable/ic_sign_up_aos"
-                android:drawablePadding="20dp"
-                android:text="Android Dev"
-                android:textColor="#333333"
-                android:textSize="15dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraint_ios"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="17dp"
-            android:background="@drawable/sign_up_position_card_background"
             app:layout_constraintBottom_toTopOf="@+id/btn_next"
-            app:layout_constraintEnd_toStartOf="@+id/constraint_server"
-            app:layout_constraintStart_toStartOf="@+id/constraint_designer"
-            app:layout_constraintTop_toBottomOf="@+id/constraint_designer">
+            app:layout_constraintTop_toTopOf="parent">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="12dp"
-                android:background="@drawable/ic_sign_up_check_off"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableTop="@drawable/ic_sign_up_ios"
-                android:drawablePadding="20dp"
-                android:text="iOS Dev"
-                android:textColor="#333333"
-                android:textSize="15dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="66dp"
+                    android:text="What is the Position"
+                    android:fontFamily="@font/roboto_thin"
+                    android:textColor="@color/sign_up_selected_color"
+                    android:textSize="24dp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="SpUsage" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraint_server"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="16dp"
-            android:background="@drawable/sign_up_position_card_background"
-            app:layout_constraintBottom_toBottomOf="@+id/constraint_ios"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/constraint_ios"
-            app:layout_constraintTop_toTopOf="@+id/constraint_ios">
+                <TextView
+                    android:id="@+id/tv_subtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="You always can change"
+                    android:textColor="#919296"
+                    android:textSize="15dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_title"
+                    app:layout_constraintVertical_bias="0"
+                    tools:ignore="SpUsage" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="12dp"
-                android:background="@drawable/ic_sign_up_check_off"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                <com.ddd.common.CustomSignUpPositionView
+                    android:id="@+id/custom_container_designer"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="49dp"
+                    android:onClick="@{()->signUpViewModel.selectedPosition(designer)}"
+                    app:layout_constraintBottom_toTopOf="@+id/custom_container_ios"
+                    app:layout_constraintEnd_toStartOf="@+id/custom_container_aos"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_subtitle"
+                    app:position="Designer"
+                    app:positionLogo="@drawable/ic_sign_up_designer" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableTop="@drawable/ic_sign_up_server"
-                android:drawablePadding="20dp"
-                android:text="Backend Dev"
-                android:textColor="#333333"
-                android:textSize="15dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <com.ddd.common.CustomSignUpPositionView
+                    android:id="@+id/custom_container_aos"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="28dp"
+                    android:onClick="@{()->signUpViewModel.selectedPosition(aos)}"
+                    app:layout_constraintBottom_toBottomOf="@+id/custom_container_designer"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/custom_container_designer"
+                    app:layout_constraintTop_toTopOf="@+id/custom_container_designer"
+                    app:position="Android Dev"
+                    app:positionLogo="@drawable/ic_sign_up_aos" />
+
+                <com.ddd.common.CustomSignUpPositionView
+                    android:id="@+id/custom_container_ios"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="66dp"
+                    android:onClick="@{()->signUpViewModel.selectedPosition(ios)}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/custom_container_backEnd"
+                    app:layout_constraintStart_toStartOf="@+id/custom_container_designer"
+                    app:layout_constraintTop_toBottomOf="@+id/custom_container_designer"
+                    app:position="iOS Dev"
+                    app:positionLogo="@drawable/ic_sign_up_ios" />
+
+                <com.ddd.common.CustomSignUpPositionView
+                    android:id="@+id/custom_container_backEnd"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="16dp"
+                    android:onClick="@{()->signUpViewModel.selectedPosition(backEnd)}"
+                    app:layout_constraintBottom_toBottomOf="@+id/custom_container_ios"
+                    app:layout_constraintEnd_toEndOf="@id/custom_container_aos"
+                    app:layout_constraintStart_toEndOf="@+id/custom_container_ios"
+                    app:layout_constraintTop_toTopOf="@+id/custom_container_ios"
+                    app:position="Backend Dev"
+                    app:positionLogo="@drawable/ic_sign_up_server" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
 
         <Button
             android:id="@+id/btn_next"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:background="#151515"
+            android:background="@drawable/selector_sign_up_next"
+            android:enabled="false"
             android:onClick="@{()->signUpViewModel.replaceFragment(stepFinalFragment)}"
-            android:text="다음"
+            android:paddingTop="24dp"
+            android:paddingBottom="23dp"
+            android:text="@string/sign_up_next"
+            android:textSize="16dp"
             android:textColor="@android:color/white"
-            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

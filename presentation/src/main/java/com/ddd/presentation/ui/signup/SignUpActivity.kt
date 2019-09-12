@@ -1,7 +1,6 @@
 package com.ddd.presentation.ui.signup
 
 import android.os.Bundle
-import android.util.Log
 import androidx.lifecycle.ViewModelProviders
 import com.ddd.common.ob
 import com.ddd.common.replaceFragment
@@ -31,7 +30,6 @@ class SignUpActivity : BaseActivity<SignUpViewModel, ActivitySignUpBinding>() {
     private fun result(result: SignUpViewModel.Result) {
         when (result) {
             is SignUpViewModel.Result.ReplaceFragment -> {
-                Log.e("??", result.fragment.toString())
                 replaceFragment(
                     supportFragmentManager,
                     R.id.frameLayout,
