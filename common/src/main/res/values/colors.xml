@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="main_background_color">#f5f6fa</color>
+    <!--sign up-->
+    <color name="sign_up_selected_color">#151515</color>
+    <color name="sign_up_position_text_color">#333333</color>
+</resources>
