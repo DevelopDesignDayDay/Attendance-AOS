@@ -4,10 +4,11 @@ apply plugin: 'kotlin-kapt'
 apply from: '../android_commons.gradle'
 apply from: '../android_core_dependencies.gradle'
 apply from: '../android_network_dependencies.gradle'
+apply plugin: 'kotlin-android-extensions'
 
 android {
     defaultConfig {
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.signup_progress_background.runner.AndroidJUnitRunner"
     }
     dataBinding {
         enabled true
@@ -18,9 +19,9 @@ dependencies {
     implementation project(Modules.common)
     implementation project(Modules.domain)
 
-    implementation Libraries.coroutine
-
     implementation Libraries.glide
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     kapt Libraries.glideCompiler
     implementation Libraries.dagger
     implementation Libraries.daggerAndroid
@@ -30,4 +31,5 @@ dependencies {
 
     implementation Libraries.firebaseDataBase
     implementation Libraries.zxing
+    implementation 'com.google.firebase:firebase-auth:19.0.0'
 }

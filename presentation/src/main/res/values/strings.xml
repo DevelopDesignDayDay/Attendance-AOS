@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">presentation</string>
+    <!--signUp-->
+    <string name="sign_up_hint_first_name">성을 입력하세요.</string>
+    <string name="sign_up_hint_last_name">이름을 입력하세요.</string>
+    <string name="sign_up_hint_email">이메일을 입력하세요.</string>
+    <string name="sign_up_hint_pw">비밀번호를 입력하세요.</string>
+    <string name="sign_up_auth_overview">특수문자, 영문, 숫자를 조합하여 8~12자 이내로 입력해주세요.</string>
+    <string name="sign_up_service_overview">서비스 이용을 위해 실명으로 작성해 주세요.</string>
+    <string name="sign_up_step_value">Step %d</string>
+    <string name="sign_up_step_max_value">/4</string>
+    <string name="sign_up_next">다음</string>
 </resources>

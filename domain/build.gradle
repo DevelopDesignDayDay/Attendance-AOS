@@ -7,10 +7,12 @@ apply plugin: 'kotlin-kapt'
 dependencies {
     implementation project(Modules.common)
 
-
+    implementation Libraries.coroutine
     implementation Libraries.dagger
     implementation Libraries.daggerAndroid
     implementation Libraries.daggerAndroidSupport
     kapt Libraries.daggerCompiler
     kapt Libraries.daggerProcessor
+
+    implementation Libraries.fireAuth
 }

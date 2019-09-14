@@ -1,5 +1,6 @@
 package com.ddd.presentation.ui
 
+import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.ddd.presentation.BaseActivity
@@ -21,5 +22,10 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
             mainViewModel = viewModel
             lifecycleOwner = this@MainActivity
         }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
     }
 }
