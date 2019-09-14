@@ -42,6 +42,7 @@ object Versions {
     val crashlytics = "2.10.1"
     val firebaseDataBase = "19.0.0"
     val firebaseMessage = "19.0.1"
+    val fireAuth = "19.0.0"
     val zxing ="3.6.0"
 }
 
@@ -50,6 +51,7 @@ object Libraries {
 
     // Google Service
     val firebaseAnalytics = "com.google.firebase:firebase-analytics:${Versions.analytics}"
+    val fireAuth = "com.google.firebase:firebase-auth:${Versions.fireAuth}"
     val firebaseCore = "com.google.firebase:firebase-core:${Versions.firebaseCore}"
     val firebaseCrashlytics = "com.crashlytics.sdk.android:crashlytics:${Versions.crashlytics}"
     val firebaseDataBase = "com.google.firebase:firebase-database:${Versions.firebaseDataBase}"

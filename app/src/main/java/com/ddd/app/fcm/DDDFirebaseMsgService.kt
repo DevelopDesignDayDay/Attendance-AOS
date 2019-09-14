@@ -18,10 +18,6 @@ class DDDFirebaseMsgService : FirebaseMessagingService() {
         const val TITLE_CHANNEL_READABLE = "DDD Push channel"
     }
 
-    override fun onNewToken(token: String?) {
-        super.onNewToken(token)
-    }
-
     override fun onMessageReceived(remoteMessage: RemoteMessage?) {
         super.onMessageReceived(remoteMessage)
         remoteMessage?.run {

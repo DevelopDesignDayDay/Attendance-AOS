@@ -19,8 +19,6 @@ dependencies {
     implementation project(Modules.common)
     implementation project(Modules.domain)
 
-    implementation Libraries.coroutine
-
     implementation Libraries.glide
     kapt Libraries.glideCompiler
     implementation Libraries.dagger
@@ -31,4 +29,5 @@ dependencies {
 
     implementation Libraries.firebaseDataBase
     implementation Libraries.zxing
+    implementation 'com.google.firebase:firebase-auth:19.0.0'
 }

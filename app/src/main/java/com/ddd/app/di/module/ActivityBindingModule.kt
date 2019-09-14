@@ -2,6 +2,7 @@ package com.ddd.app.di.module
 
 import com.ddd.app.di.ViewModelBuilder
 import com.ddd.presentation.ui.MainActivity
+import com.ddd.presentation.ui.login.LoginActivity
 import com.ddd.presentation.ui.signup.SignUpActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
@@ -13,4 +14,7 @@ abstract class ActivityBindingModule {
 
     @ContributesAndroidInjector
     abstract fun bindSignUpActivity(): SignUpActivity
+
+    @ContributesAndroidInjector()
+    abstract fun bindLoginActivity(): LoginActivity
 }

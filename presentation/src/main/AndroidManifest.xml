@@ -3,7 +3,8 @@
     package="com.ddd.presentation">
 
     <application>
-        <activity android:name=".ui.signup.SignUpActivity"></activity>
+        <activity android:name=".ui.signup.SignUpActivity" />
+        <activity android:name=".ui.login.LoginActivity" />
     </application>
-
 </manifest>
+
