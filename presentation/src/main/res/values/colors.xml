@@ -6,8 +6,8 @@
 
     <color name="main_background_color">#f5f6fa</color>
     <!--sign up-->
-    <color name="sign_up_step_basic">#999999</color>
-    <color name="sign_up_step_value">#0e0e0e</color>
+    <color name="sign_up_step_basic">#919296</color>
+    <color name="sign_up_step_value">#151515</color>
     <drawable name="sign_up_off_next_btn">#abb5c5</drawable>
     <drawable name="sign_up_on_next_btn">#151515</drawable>
 </resources>

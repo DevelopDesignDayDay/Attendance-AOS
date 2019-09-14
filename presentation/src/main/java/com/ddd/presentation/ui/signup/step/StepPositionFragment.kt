@@ -35,6 +35,7 @@ class StepPositionFragment : Fragment() {
             false
         ).apply {
             signUpViewModel = (activity as SignUpActivity).viewModel
+            lifecycleOwner = this@StepPositionFragment
             designer = Position.Designer
             aos = Position.AOS
             ios = Position.iOS

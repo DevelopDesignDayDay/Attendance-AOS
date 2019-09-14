@@ -29,6 +29,7 @@ class StepNameFragment : Fragment() {
             false
         ).apply {
             signUpViewModel = (activity as SignUpActivity).viewModel
+            lifecycleOwner = this@StepNameFragment
             stepAuthFragment =
                 StepAuthFragment.getInstance()
         }.root

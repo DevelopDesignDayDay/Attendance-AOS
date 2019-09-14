@@ -16,7 +16,7 @@
         <scale android:scaleWidth="100%">
             <shape>
                 <corners android:radius="3dp" />
-                <solid android:color="@android:color/black" />
+                <solid android:color="@color/sign_up_progressbar_color" />
             </shape>
         </scale>
     </item>

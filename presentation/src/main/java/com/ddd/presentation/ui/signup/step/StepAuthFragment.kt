@@ -30,6 +30,7 @@ class StepAuthFragment : Fragment() {
             false
         ).apply {
             signUpViewModel = (activity as SignUpActivity).viewModel
+            lifecycleOwner = this@StepAuthFragment
             stepPositionFragment =
                 StepPositionFragment.getInstance()
         }.root

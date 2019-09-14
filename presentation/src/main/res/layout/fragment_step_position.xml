@@ -5,6 +5,7 @@
 
     <data>
 
+        <import type="android.view.View" />
         <variable
             name="signUpViewModel"
             type="com.ddd.presentation.ui.signup.SignUpViewModel" />
@@ -130,18 +131,29 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
 
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminateTint="@android:color/black"
+            android:visibility="@{safeUnbox(signUpViewModel.liveLoading)? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
         <Button
             android:id="@+id/btn_next"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:enabled="@{signUpViewModel.liveEnableNextBtn}"
             android:background="@drawable/selector_sign_up_next"
-            android:enabled="false"
+            app:layout_constraintBottom_toBottomOf="parent"
             android:onClick="@{()->signUpViewModel.replaceFragment(stepFinalFragment)}"
             android:paddingTop="24dp"
             android:paddingBottom="23dp"
             android:text="@string/sign_up_next"
             android:textSize="16dp"
             android:textColor="@android:color/white"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:resultPosition="@{signUpViewModel.liveResult}"
+            tools:ignore="SpUsage" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
