@@ -30,3 +30,5 @@ fun View.visible() {
 fun View.gone() {
     this.visibility = View.GONE
 }
+
+fun Context.toast(mgs: CharSequence) = Toast.makeText(this, mgs, Toast.LENGTH_SHORT).show()

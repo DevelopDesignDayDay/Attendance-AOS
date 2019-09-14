@@ -8,4 +8,5 @@
     <!--sign up-->
     <color name="sign_up_selected_color">#151515</color>
     <color name="sign_up_position_text_color">#333333</color>
+    <color name="sign_up_progressbar_color">#369fff</color>
 </resources>
