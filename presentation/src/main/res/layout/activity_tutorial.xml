@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="bindingTutorialViewModel"
+            type="com.ddd.presentation.ui.tutorial.TutorialViewModel" />
+
+        <variable
+            name="bindingLoginViewModel"
+            type="com.ddd.presentation.ui.tutorial.login.LoginViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/main_background_color"
+        tools:context=".ui.tutorial.TutorialActivity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/constraint_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/main_background_color"
+            tools:context=".ui.tutorial.TutorialActivity">
+
+            <com.ddd.common.view.CircleIndicator
+                android:id="@+id/circleIndicator"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="80dp"
+                android:gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/btn_login"
+                app:layout_constraintTop_toTopOf="@+id/circleIndicator"
+                tools:ignore="UselessLeaf" />
+
+            <Button
+                android:id="@+id/btn_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:onClick="@{()->bindingLoginViewModel.showLoginBottomSheet()}"
+                android:text="Log in"
+                app:layout_constraintBottom_toTopOf="@+id/tv_sign_up"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_sign_up"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="123dp"
+                android:onClick="@{()->bindingTutorialViewModel.moveSignUp()}"
+                android:text="이메일로 회원가입"
+                android:textColor="#999999"
+                android:textSize="12dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>
