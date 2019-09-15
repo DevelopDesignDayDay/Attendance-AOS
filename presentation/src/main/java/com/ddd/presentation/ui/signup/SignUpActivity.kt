@@ -42,6 +42,7 @@ class SignUpActivity : BaseActivity<SignUpViewModel, ActivitySignUpBinding>() {
 
     private fun result(result: SignUpViewModel.Result) {
         when (result) {
+            is SignUpViewModel.Result.Finish -> finish()
             is SignUpViewModel.Result.ToastMessage -> toast(result.msg)
             is SignUpViewModel.Result.ReplaceFragment -> {
                 when (result.fragment) {
