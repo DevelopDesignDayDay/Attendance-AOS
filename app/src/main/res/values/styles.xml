@@ -11,4 +11,12 @@
         <item name="android:windowLightStatusBar">true</item>
     </style>
 
+    <style name="LoginTheme" parent="AppTheme">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="android:statusBarColor">@color/status_bar_color</item>
+    </style>
 </resources>

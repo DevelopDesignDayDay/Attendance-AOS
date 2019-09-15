@@ -35,6 +35,7 @@ class SignUpViewModel @Inject constructor(
         data class ReplaceFragment(val fragment: Fragment) : Result()
         data class SelectedPosition(val position: Position) : Result()
         data class ToastMessage(val msg: String) : Result()
+        object Finish : Result()
     }
 
     private val _liveResult = MutableLiveData<Result>()
@@ -94,6 +95,9 @@ class SignUpViewModel @Inject constructor(
         }
     }
 
+    fun finish() {
+        _liveResult.value = Result.Finish
+    }
     fun replaceFragment(fragment: Fragment) {
         when (fragment) {
             is StepPositionFragment -> selectedStepPositionFragment(fragment)

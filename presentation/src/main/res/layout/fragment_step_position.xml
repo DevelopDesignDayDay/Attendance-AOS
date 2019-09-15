@@ -74,7 +74,7 @@
                     app:layout_constraintVertical_bias="0"
                     tools:ignore="SpUsage" />
 
-                <com.ddd.common.CustomSignUpPositionView
+                <com.ddd.common.view.CustomSignUpPositionView
                     android:id="@+id/custom_container_designer"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -88,7 +88,7 @@
                     app:position="Designer"
                     app:positionLogo="@drawable/ic_sign_up_designer" />
 
-                <com.ddd.common.CustomSignUpPositionView
+                <com.ddd.common.view.CustomSignUpPositionView
                     android:id="@+id/custom_container_aos"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -102,7 +102,7 @@
                     app:position="Android Dev"
                     app:positionLogo="@drawable/ic_sign_up_aos" />
 
-                <com.ddd.common.CustomSignUpPositionView
+                <com.ddd.common.view.CustomSignUpPositionView
                     android:id="@+id/custom_container_ios"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -116,7 +116,7 @@
                     app:position="iOS Dev"
                     app:positionLogo="@drawable/ic_sign_up_ios" />
 
-                <com.ddd.common.CustomSignUpPositionView
+                <com.ddd.common.view.CustomSignUpPositionView
                     android:id="@+id/custom_container_backEnd"
                     android:layout_width="0dp"
                     android:layout_height="0dp"

@@ -1,4 +1,4 @@
-package com.ddd.presentation.ui
+package com.ddd.presentation.ui.main
 
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.ddd.presentation.BaseActivity
 import com.ddd.presentation.R
 import com.ddd.presentation.databinding.ActivityMainBinding
+import kotlinx.android.synthetic.main.main_bottom_sheet.*
 import javax.inject.Inject
 
 class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
@@ -26,6 +27,8 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        test.setOnClickListener {
+            viewModel.tempLogout()
+        }
     }
 }

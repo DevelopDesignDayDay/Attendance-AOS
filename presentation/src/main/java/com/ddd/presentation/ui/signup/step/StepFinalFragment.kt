@@ -29,6 +29,7 @@ class StepFinalFragment : Fragment() {
             false
         ).apply {
             signUpViewModel = (activity as SignUpActivity).viewModel
+            lifecycleOwner = this@StepFinalFragment
         }.root
     }
 }

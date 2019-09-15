@@ -1,4 +1,4 @@
-package com.ddd.common
+package com.ddd.common.view
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -6,6 +6,7 @@ import android.content.res.TypedArray
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.ddd.common.R
 import kotlinx.android.synthetic.main.custom_sign_up_position_bg.view.*
 
 
