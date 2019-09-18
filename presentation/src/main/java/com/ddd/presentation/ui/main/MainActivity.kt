@@ -5,7 +5,9 @@ import android.graphics.Color
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
-import com.ddd.common.loadCircularImage
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
+import com.ddd.common.view.RoundedCornersTransformation
 import com.ddd.domain.entity.DomainEntity
 import com.ddd.presentation.BaseActivity
 import com.ddd.presentation.R
@@ -44,35 +46,31 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
         generateQRCOde("아무개")
 
 
-        val items = listOf(
+        val adapter = listOf(
             DomainEntity.Curriculum("October 12", "디디디 커리큘럼 1번째\n오리엔테이션", false),
             DomainEntity.Curriculum("October 12", "디디디 커리큘럼 2번째\n오리엔테이션", false),
             DomainEntity.Curriculum("October 12", "디디디 커리큘럼 3번째\n오리엔테이션", false),
             DomainEntity.Curriculum("October 12", "디디디 커리큘럼 4번째\n오리엔테이션", false),
             DomainEntity.Curriculum("October 12", "디디디 커리큘럼 5번째\n오리엔테이션", false),
             DomainEntity.Curriculum("October 12", "디디디 커리큘럼 6번째\n오리엔테이션", false)
-        )
-        recycler_calendar.adapter = CurriculumAdapter(items)
+        ).let(::CurriculumAdapter)
+        recycler_calendar.adapter = adapter
     }
 
     private fun generateQRCOde(contents: String) {
-//        toBitmap(BarcodeEncoder().encode(contents, BarcodeFormat.QR_CODE, 30, 30))
-//            .let(img_qr_code::setImageBitmap)
-
-//        Glide.with(this)
-//            .load(toBitmap(BarcodeEncoder().encode(contents, BarcodeFormat.QR_CODE, 30, 30)))
-//            .apply(RequestOptions.bitmapTransform(RoundedCornersTransformation(this,30,2)))
-//            .into(img_qr_code)
-//        Glide.with(this)
-//            .load(toBitmap(BarcodeEncoder().encode(contents, BarcodeFormat.QR_CODE, 30, 30)))
-//            .apply(RequestOptions.circleCropTransform())
-//            .into(img_qr_code)
-//
-        img_qr_code.loadCircularImage(
-            toBitmap(BarcodeEncoder().encode(contents, BarcodeFormat.QR_CODE, 30, 30)),
-            1f,
-            Color.WHITE
-        )
+        Glide.with(this)
+            .load(toBitmap(BarcodeEncoder().encode(contents, BarcodeFormat.QR_CODE, 30, 30)))
+            .apply(
+                RequestOptions.bitmapTransform(
+                    RoundedCornersTransformation(
+                        this,
+                        8,
+                        2,
+                        "#FFFFFF",
+                        1
+                    )
+                )
+            ).into(img_qr_code)
     }
 
     private fun toBitmap(matrix: BitMatrix): Bitmap {
