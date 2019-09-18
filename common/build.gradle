@@ -2,3 +2,7 @@ apply plugin: 'com.android.library'
 apply from: '../android_commons.gradle'
 apply from: '../android_core_dependencies.gradle'
 apply from: '../android_network_dependencies.gradle'
+
+dependencies {
+    implementation Libraries.glide
+}
