@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">presentation</string>
-    <!--signIn-->
+    <!--signUp-->
     <string name="sign_up_hint_first_name">성을 입력하세요.</string>
     <string name="sign_up_hint_last_name">이름을 입력하세요.</string>
     <string name="sign_up_hint_email">이메일을 입력하세요.</string>
@@ -11,7 +11,15 @@
     <string name="sign_up_step_max_value">/4</string>
     <string name="sign_up_next">다음</string>
     <string name="sign_up_move_login">로그인 하기</string>
-
+    <string name="sign_up_step_first_title">본인의 이름을 알려주세요</string>
+    <string name="sign_up_step_first_subtitle">출첵을 위해 실명을 입력해주세요</string>
+    <string name="sign_up_step_second_title">아이디 비밀번호를 입력해주세요</string>
+    <string name="sign_up_step_second_subtitle">출첵을 위해 필요한 계정입니다</string>
+    <string name="sign_up_step_fourth_title">가입이 완료되었습니다 :)</string>
+    <string name="sign_up_step_fourth_subtitle">멤버가 되신 걸 환영합니다!</string>
+    <!--tutorial-->
+    <string name="tutorial_login">Log in</string>
+    <string name="tutorial_sign_up_email">이메일로 회원가입</string>
     <!--login-->
     <string name="login_title">Hello! 회원님</string>
     <string name="login_subtitle">디디디에 오신걸 정말 환영합니다 :)\n로그인후 이용이 가능합니다.</string>
