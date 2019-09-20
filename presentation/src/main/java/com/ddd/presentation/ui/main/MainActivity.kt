@@ -1,23 +1,15 @@
 package com.ddd.presentation.ui.main
 
-import android.graphics.Bitmap
-import android.graphics.Color
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
-import com.ddd.common.view.RoundedCornersTransformation
+import com.ddd.common.ob
 import com.ddd.domain.entity.DomainEntity
 import com.ddd.presentation.BaseActivity
 import com.ddd.presentation.R
 import com.ddd.presentation.databinding.ActivityMainBinding
 import com.ddd.presentation.ui.main.adapter.CurriculumAdapter
-import com.google.zxing.BarcodeFormat
-import com.google.zxing.common.BitMatrix
-import com.journeyapps.barcodescanner.BarcodeEncoder
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.main_bottom_sheet.*
 import javax.inject.Inject
 
 
@@ -37,13 +29,13 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
         }
     }
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         img_temp.setOnClickListener {
             viewModel.tempLogout()
         }
-
-        generateQRCOde("아무개")
+        ob(viewModel.liveResult, ::result)
 
 
         val adapter = listOf(
@@ -57,33 +49,9 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
         recycler_calendar.adapter = adapter
     }
 
-    private fun generateQRCOde(contents: String) {
-        Glide.with(this)
-            .load(toBitmap(BarcodeEncoder().encode(contents, BarcodeFormat.QR_CODE, 30, 30)))
-            .apply(
-                RequestOptions.bitmapTransform(
-                    RoundedCornersTransformation(
-                        this,
-                        8,
-                        2,
-                        "#FFFFFF",
-                        1
-                    )
-                )
-            ).into(img_qr_code)
-    }
-
-    private fun toBitmap(matrix: BitMatrix): Bitmap {
-        val height = matrix.height
-        val width = matrix.width
-        val bmp = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565)
-        for (x in 0 until width) {
-            for (y in 0 until height) {
-                val result =
-                    if (matrix.get(x, y)) Color.WHITE else getColor(R.color.sign_up_selected_color)
-                bmp.setPixel(x, y, result)
-            }
+    fun result(result: MainViewModel.Result) {
+        when (result) {
+            is MainViewModel.Result.InitQRCode -> qr_img.setImageBitmap(result.qrcode)
         }
-        return bmp
     }
 }

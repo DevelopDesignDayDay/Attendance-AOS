@@ -30,7 +30,6 @@ dependencies {
     kapt Libraries.daggerProcessor
 
     implementation Libraries.firebaseDataBase
-    implementation Libraries.zxing
     implementation 'com.google.firebase:firebase-auth:19.0.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta2'
 }
