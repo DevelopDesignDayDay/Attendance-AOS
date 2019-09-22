@@ -3,10 +3,11 @@
     package="com.ddd.presentation">
 
     <application>
-        <activity android:name=".ui.tutorial.TutorialActivity"/>
+        <activity android:name=".ui.manager.ManagerActivity"/>
+        <activity android:name=".ui.tutorial.TutorialActivity" />
         <activity android:name=".ui.splash.SplashActivity" />
         <activity android:name=".ui.signup.SignUpActivity" />
-        <activity android:name="com.ddd.presentation.ui.tutorial.login.LoginActivity" />
+        <activity android:name=".ui.tutorial.login.LoginActivity" />
     </application>
 
 </manifest>
