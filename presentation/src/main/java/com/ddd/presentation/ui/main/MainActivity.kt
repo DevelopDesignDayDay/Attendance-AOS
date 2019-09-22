@@ -1,5 +1,6 @@
 package com.ddd.presentation.ui.main
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
@@ -52,6 +53,10 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
     fun result(result: MainViewModel.Result) {
         when (result) {
             is MainViewModel.Result.InitQRCode -> qr_img.setImageBitmap(result.qrcode)
+            is MainViewModel.Result.LoginActivity<*> -> {
+                startActivity(Intent(this, result.nextActivity))
+                finish()
+            }
         }
     }
 }
