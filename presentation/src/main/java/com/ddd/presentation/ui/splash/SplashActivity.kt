@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import com.ddd.common.createViewModel
 import com.ddd.common.ob
+import com.ddd.common.toast
 import com.ddd.presentation.BaseActivity
 import com.ddd.presentation.R
 import com.ddd.presentation.databinding.ActivitySplashBinding
@@ -34,6 +35,7 @@ class SplashActivity : BaseActivity<SplashViewModel, ActivitySplashBinding>() {
 
     fun result(result: SplashViewModel.Result) {
         when (result) {
+            is SplashViewModel.Result.Error -> toast(result.msg)
             is SplashViewModel.Result.SuccessSignUp<*> -> {
                 startActivity(Intent(this, result.nextActivity.java))
                 finish()

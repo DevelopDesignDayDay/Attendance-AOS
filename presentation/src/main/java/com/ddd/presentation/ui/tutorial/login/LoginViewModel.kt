@@ -6,15 +6,18 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.ddd.common.MessageManager.LOGIN_EMPTY_INPUT
 import com.ddd.common.MessageManager.LOGIN_INPUT_ERROR_MSG
+import com.ddd.domain.CheckManagerUseCase
 import com.ddd.domain.SaveUseCase
 import com.ddd.presentation.ui.main.MainActivity
+import com.ddd.presentation.ui.manager.ManagerActivity
 import com.google.firebase.auth.FirebaseAuth
 import javax.inject.Inject
 import kotlin.reflect.KClass
 
 class LoginViewModel @Inject constructor(
     private val auth: FirebaseAuth,
-    private val saveUserUseCase: SaveUseCase
+    private val saveUserUseCase: SaveUseCase,
+    private val checkManagerUseCase: CheckManagerUseCase
 ) : ViewModel() {
     sealed class Result {
         data class Error(val msg: String) : Result()
@@ -54,7 +57,14 @@ class LoginViewModel @Inject constructor(
             .addOnCompleteListener {
                 _liveProgress.value = false
                 if (it.isSuccessful) {
-                    _liveResult.value = Result.SuccessSignUp(MainActivity::class)
+                    checkManagerUseCase.execute(it.result?.user?.uid,
+                        success = { isManager ->
+                            if (isManager) _liveResult.value =
+                                Result.SuccessSignUp(ManagerActivity::class)
+                            else _liveResult.value = Result.SuccessSignUp(MainActivity::class)
+                        },
+                        error = { e -> _liveResult.value = Result.Error(e.message.orEmpty()) }
+                    )
                 } else {
                     _liveResult.value = Result.Error(LOGIN_INPUT_ERROR_MSG)
                 }
