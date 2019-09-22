@@ -29,4 +29,6 @@ dependencies {
 
     implementation Libraries.fireAuth
     implementation Libraries.firebaseDataBase
+
+    implementation Libraries.zxing
 }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -9,20 +10,202 @@
             type="com.ddd.presentation.ui.main.MainViewModel" />
     </data>
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <androidx.constraintlayout.motion.widget.MotionLayout
         android:layout_width="match_parent"
-        android:background="@color/main_background_color"
         android:layout_height="match_parent"
-        android:clipToPadding="false"
-        android:fitsSystemWindows="true">
+        android:background="@color/main_background_color"
+        app:layoutDescription="@xml/scene_main">
 
-        <FrameLayout
-            android:id="@+id/mapContainer"
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="0dp"
+            android:background="@color/main_background_color"
+            app:layout_constraintBottom_toTopOf="@+id/constraint_qr_bottom"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <include layout="@layout/main_bottom_sheet" />
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_calendar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="24dp"
+                android:paddingStart="64dp"
+                android:paddingEnd="64dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/main_background_color"
+                android:theme="@style/AppTheme.AppBarOverlay">
+
+                <com.google.android.material.appbar.CollapsingToolbarLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/main_background_color"
+                    android:fitsSystemWindows="true"
+                    app:contentScrim="?attr/colorPrimary"
+                    app:layout_collapseMode="none"
+                    app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                    app:statusBarScrim="@android:color/black">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/main_background_color"
+                        android:paddingTop="?attr/actionBarSize">
+
+                        <TextView
+                            android:id="@+id/tv_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="64dp"
+                            android:layout_marginTop="32dp"
+                            android:text="Welcome Back"
+                            android:textColor="@color/sign_up_selected_color"
+                            android:textSize="24dp"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:ignore="SpUsage" />
+
+                        <TextView
+                            android:id="@+id/tv_subtitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:lineSpacingExtra="8dp"
+                            android:text="We suggest you to wear a colorful\nthe gray weather in Milan"
+                            app:layout_constraintStart_toStartOf="@+id/tv_title"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+                        <ImageView
+                            android:id="@+id/img_card"
+                            android:layout_width="0dp"
+                            android:layout_height="300dp"
+                            android:layout_marginTop="32dp"
+                            android:layout_marginEnd="64dp"
+                            android:background="@drawable/selector_sign_in_circle"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="@+id/tv_subtitle"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_subtitle" />
+
+                        <TextView
+                            android:id="@+id/tv_calendar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="65dp"
+                            android:text="Calendar List"
+                            android:textColor="@color/sign_up_selected_color"
+                            android:textSize="24dp"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="@+id/tv_title"
+                            app:layout_constraintTop_toBottomOf="@+id/img_card"
+                            tools:ignore="SpUsage"
+                            tools:text="Calendar List" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.appcompat.widget.Toolbar
+                        android:id="@+id/toolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize"
+                        android:background="@color/main_background_color"
+                        android:elevation="0dp"
+                        app:elevation="0dp"
+                        app:layout_collapseMode="pin"
+                        app:layout_scrollFlags="scroll|enterAlways">
+
+                        <ImageButton
+                            android:id="@+id/img_temp"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="end"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="24dp"
+                            android:background="@drawable/circle"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.appcompat.widget.Toolbar>
+                </com.google.android.material.appbar.CollapsingToolbarLayout>
+            </com.google.android.material.appbar.AppBarLayout>
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraint_qr_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="62dp"
+            android:background="@android:color/transparent">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/main_bottom_sheet_background" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/slideLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp">
+
+            <View
+                android:layout_width="15dp"
+                android:layout_height="3dp"
+                android:background="@drawable/line_cornered"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/tv_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="21dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="See the details"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/slideLayout" />
+
+        <ImageView
+            android:id="@+id/qr_img"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@color/main_background_color"
+            android:visibility="invisible"
+            app:layout_constraintTop_toBottomOf="@+id/slideLayout"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/qr_gone_img"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/icon_qrcode"
+            app:layout_constraintBottom_toBottomOf="@+id/qr_img"
+            app:layout_constraintEnd_toEndOf="@+id/qr_img"
+            app:layout_constraintStart_toStartOf="@+id/qr_img"
+            app:layout_constraintTop_toTopOf="@id/qr_img"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/tv_qr_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="172dp"
+            android:gravity="center_horizontal"
+            android:text="This QR code is very safe\nShare to any others"
+            android:textColor="@android:color/white"
+            android:textSize="15dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/qr_img"
+            app:layout_constraintStart_toStartOf="@+id/qr_img"
+            app:layout_constraintTop_toBottomOf="@+id/qr_img"
+            tools:ignore="SpUsage" />
+    </androidx.constraintlayout.motion.widget.MotionLayout>
 </layout>

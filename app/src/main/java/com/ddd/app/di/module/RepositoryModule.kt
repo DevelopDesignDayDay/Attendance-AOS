@@ -1,6 +1,6 @@
 package com.ddd.app.di.module
 
-import com.ddd.data.manager.FirebaseRepositoryImple
+import com.ddd.data.manager.FirebaseRepositoryImpl
 import com.ddd.domain.FirebaseRepository
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
@@ -11,8 +11,8 @@ import dagger.Provides
 class RepositoryModule {
 
     @Provides
-    fun FirebaseRepository(
+    fun firebaseRepository(
         databaseReference: DatabaseReference,
         firebaseAuth: FirebaseAuth
-    ): FirebaseRepository = FirebaseRepositoryImple(databaseReference, firebaseAuth)
+    ): FirebaseRepository = FirebaseRepositoryImpl(databaseReference, firebaseAuth)
 }
