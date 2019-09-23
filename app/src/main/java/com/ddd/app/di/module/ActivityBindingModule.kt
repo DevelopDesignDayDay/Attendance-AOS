@@ -2,6 +2,7 @@ package com.ddd.app.di.module
 
 import com.ddd.app.di.ViewModelBuilder
 import com.ddd.presentation.ui.main.MainActivity
+import com.ddd.presentation.ui.manager.ManagerActivity
 import com.ddd.presentation.ui.signup.SignUpActivity
 import com.ddd.presentation.ui.splash.SplashActivity
 import com.ddd.presentation.ui.tutorial.TutorialActivity
@@ -21,4 +22,7 @@ abstract class ActivityBindingModule {
 
     @ContributesAndroidInjector
     abstract fun bindTutorialActivity(): TutorialActivity
+
+    @ContributesAndroidInjector
+    abstract fun bindManagerActivity(): ManagerActivity
 }

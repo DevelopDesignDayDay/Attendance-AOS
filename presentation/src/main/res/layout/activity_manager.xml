@@ -1,50 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/main_background_color"
-    tools:context=".ui.manager.ManagerActivity">
+<layout xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:text="오늘의 출석 시작 시간은 몇시인가요?"
-        android:textColor="@color/sign_up_selected_color"
-        android:textSize="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/tv_attend_start_time"
-        app:layout_constraintEnd_toEndOf="@+id/tv_attend_start_time"
-        app:layout_constraintStart_toStartOf="@+id/tv_attend_start_time" />
+    <data>
 
-    <TextView
-        android:id="@+id/tv_attend_start_time"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginEnd="64dp"
-        android:background="@drawable/sign_up_input_background"
-        android:drawableEnd="@drawable/ic_bottom_arrow"
-        android:paddingStart="16dp"
-        android:paddingTop="15dp"
-        android:paddingEnd="16dp"
-        android:paddingBottom="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_start_qr_code"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <variable
+            name="managerViewModel"
+            type="com.ddd.presentation.ui.manager.ManagerViewModel" />
+    </data>
 
-    <Button
-        android:id="@+id/btn_start_qr_code"
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/sign_up_selected_color"
-        android:paddingStart="16dp"
-        android:paddingTop="15dp"
-        android:paddingEnd="16dp"
-        android:paddingBottom="15dp"
-        android:text="QR Code"
-        android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="match_parent"
+        android:background="@color/main_background_color"
+        tools:context=".ui.manager.ManagerActivity">
+
+        <TextView
+            android:id="@+id/tv_place_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="68dp"
+            android:gravity="center_horizontal"
+            android:text="오늘의 장소는 어디인가요?"
+            android:textColor="@color/sign_up_selected_color"
+            android:textSize="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/edit_place"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="SpUsage" />
+
+        <EditText
+            android:id="@+id/edit_place"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="64dp"
+            android:background="@drawable/sign_up_input_background"
+            android:inputType="text"
+            android:maxLength="15"
+            android:maxLines="1"
+            android:onTextChanged="@{(text, start, before, count) -> managerViewModel.placeInputChanged(text)}"
+            android:paddingStart="16dp"
+            android:paddingTop="15dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_place_description"
+            app:layout_constraintVertical_bias="0" />
+
+        <TextView
+            android:id="@+id/tv_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center_horizontal"
+            android:text="오늘의 출석 시작 시간은 몇시인가요?"
+            android:textColor="@color/sign_up_selected_color"
+            android:textSize="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edit_place" />
+
+        <TextView
+            android:id="@+id/tv_attend_start_time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/sign_up_input_background"
+            android:drawableEnd="@drawable/ic_bottom_arrow"
+            android:paddingStart="16dp"
+            android:paddingTop="15dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="15dp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_start_qr_code"
+            app:layout_constraintEnd_toEndOf="@+id/edit_place"
+            app:layout_constraintStart_toStartOf="@+id/edit_place"
+            app:layout_constraintTop_toBottomOf="@+id/tv_description"
+            app:layout_constraintVertical_bias="0" />
+
+        <Button
+            android:id="@+id/btn_start_qr_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/sign_up_selected_color"
+            android:paddingStart="16dp"
+            android:paddingTop="15dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="15dp"
+            android:text="QR Code"
+            android:textSize="16dp"
+            android:textColor="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:ignore="SpUsage" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

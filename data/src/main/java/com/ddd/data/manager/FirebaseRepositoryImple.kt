@@ -11,8 +11,10 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ValueEventListener
 import javax.inject.Inject
 
+const val QUERY_USERS_ATTENDANCE = "attendance"
 const val QUERY_USERS = "users"
 const val QUERY_MANAGER = "manager"
+
 class FirebaseRepositoryImpl @Inject constructor(
     private val db: DatabaseReference,
     private val auth: FirebaseAuth
@@ -27,13 +29,26 @@ class FirebaseRepositoryImpl @Inject constructor(
             .child(uuid)
             .child(QUERY_MANAGER)
             .addValueEventListener(object : ValueEventListener {
-                override fun onCancelled(error: DatabaseError) {
+                override fun onCancelled(error: DatabaseError) =
                     error(DDDException.NotFindDataBaseData(ERROR_NOT_FOUND_FIREBASE_DATABASE_DATA))
-                }
 
-                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                override fun onDataChange(dataSnapshot: DataSnapshot) =
                     result(dataSnapshot.value as Boolean)
-                }
             })
+    }
+
+    override fun saveAttendance(
+        uuid: String,
+        place:String,
+        startAttendance: String,
+        realAttendance: String,
+        result: (Boolean) -> Unit,
+        error: (DDDException) -> Unit
+    ) {
+        db.child(QUERY_USERS)
+            .child(uuid)
+            .child(QUERY_USERS_ATTENDANCE)
+            .child(startAttendance)
+            .setValue(DataEntity.Attendance(place,realAttendance))
     }
 }

@@ -7,4 +7,9 @@ sealed class DataEntity {
         val position: String = "",
         val isManager: Boolean = false
     ) : DataEntity()
+
+    data class Attendance(
+        val place:String="",
+        val realAttendance: String=""
+    ) : DataEntity()
 }
