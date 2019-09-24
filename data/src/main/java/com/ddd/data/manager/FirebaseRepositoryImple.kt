@@ -42,13 +42,13 @@ class FirebaseRepositoryImpl @Inject constructor(
         place:String,
         startAttendance: String,
         realAttendance: String,
-        result: (Boolean) -> Unit,
-        error: (DDDException) -> Unit
+        result: (Unit) -> Unit
     ) {
         db.child(QUERY_USERS)
             .child(uuid)
             .child(QUERY_USERS_ATTENDANCE)
             .child(startAttendance)
             .setValue(DataEntity.Attendance(place,realAttendance))
+        result(Unit)
     }
 }

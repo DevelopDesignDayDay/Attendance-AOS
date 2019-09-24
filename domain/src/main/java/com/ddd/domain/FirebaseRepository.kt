@@ -10,7 +10,6 @@ interface FirebaseRepository {
         place:String,
         startAttendance: String,
         realAttendance: String,
-        result: (Boolean) -> Unit,
-        error: (DDDException) -> Unit
+        result: (Unit) -> Unit
     )
 }

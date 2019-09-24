@@ -9,7 +9,7 @@ import javax.inject.Inject
 
 class GetQRCodeDataUseCase @Inject constructor(
     private val firebaseAuth: FirebaseAuth
-) : DDDUseCas<Nothing, Bitmap>() {
+) : DDDUseCase<Nothing, Bitmap>() {
 
     override fun execute(
         params: Nothing?,
