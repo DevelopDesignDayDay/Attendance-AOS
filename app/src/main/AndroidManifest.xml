@@ -11,10 +11,10 @@
         android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:usesCleartextTraffic="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
         <activity
             android:name="com.journeyapps.barcodescanner.CaptureActivity"
@@ -24,12 +24,16 @@
             android:name=".presentation.ui.main.MainActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
+            <!--            <intent-filter>-->
+            <!--                <action android:name="android.intent.action.MAIN" />-->
 
             <!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+            <!--            </intent-filter>-->
         </activity>
+        <activity
+            android:name=".presentation.ui.manager.ManagerActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
             android:name=".presentation.ui.signup.SignUpActivity"
             android:screenOrientation="portrait"
@@ -42,7 +46,8 @@
         </activity>
         <activity
             android:name=".presentation.ui.splash.SplashActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/LoginTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -51,18 +56,9 @@
         </activity>
         <activity
             android:name=".presentation.ui.tutorial.TutorialActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.ddd.presentation.ui.tutorial.login.LoginActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/LoginTheme"
-            android:windowSoftInputMode="stateHidden|adjustResize">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
+            android:windowSoftInputMode="stateHidden|adjustResize" />
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-        </activity>
         <service
             android:name=".app.fcm.DDDFirebaseMsgService"
             android:exported="false">
