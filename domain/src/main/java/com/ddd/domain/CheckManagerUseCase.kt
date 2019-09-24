@@ -5,7 +5,7 @@ import javax.inject.Inject
 
 class CheckManagerUseCase @Inject constructor(
     private val firebaseRepository: FirebaseRepository
-) : DDDUseCas<String, Boolean>() {
+) : DDDUseCase<String, Boolean>() {
     override fun execute(
         params: String?,
         error: (DDDException) -> Unit,
