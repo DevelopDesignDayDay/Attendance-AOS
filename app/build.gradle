@@ -28,7 +28,7 @@ dependencies {
     kapt Libraries.daggerProcessor
 
     implementation Libraries.fireAuth
-    implementation Libraries.firebaseDataBase
+    implementation Libraries.firebaseStore
 
     implementation Libraries.zxing
 }

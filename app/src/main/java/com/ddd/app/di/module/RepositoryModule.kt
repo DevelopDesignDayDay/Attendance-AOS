@@ -19,5 +19,5 @@ class RepositoryModule {
     ): FirebaseRepository = FirebaseRepositoryImpl(databaseReference, firebaseAuth)
 
     @Provides
-    fun provideTimeProvider() : TimeProviderRepository = TimeProviderImpl()
+    fun provideTimeProvider(): TimeProviderRepository = TimeProviderImpl()
 }
