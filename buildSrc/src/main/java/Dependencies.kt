@@ -40,8 +40,9 @@ object Versions {
     val analytics = "17.2.0"
     val firebaseCore = "17.0.0"
     val crashlytics = "2.10.1"
-    val firebaseDataBase = "19.0.0"
+    val realTimeDataBase = "19.1.0"
     val firebaseMessage = "19.0.1"
+    val firebaseStorage = "19.1.1"
     val fireAuth = "19.0.0"
     val zxing ="3.6.0"
 }
@@ -54,8 +55,9 @@ object Libraries {
     val fireAuth = "com.google.firebase:firebase-auth:${Versions.fireAuth}"
     val firebaseCore = "com.google.firebase:firebase-core:${Versions.firebaseCore}"
     val firebaseCrashlytics = "com.crashlytics.sdk.android:crashlytics:${Versions.crashlytics}"
-    val firebaseDataBase = "com.google.firebase:firebase-database:${Versions.firebaseDataBase}"
+    val firebaseStore = "com.google.firebase:firebase-database:${Versions.realTimeDataBase}"
     val firebaseMessage = "com.google.firebase:firebase-messaging:${Versions.firebaseMessage}"
+    val firebaseStorage = "com.google.firebase:firebase-storage:${Versions.firebaseStorage}"
 
     // Dagger2
     val dagger = "com.google.dagger:dagger:${Versions.dagger}"
