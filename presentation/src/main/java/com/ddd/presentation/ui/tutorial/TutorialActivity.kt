@@ -36,12 +36,22 @@ class TutorialActivity : BaseActivity<TutorialViewModel, ActivityTutorialBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         createTutorialDot()
+        viewModel.getTutorialItems()
         ob(loginViewModel.liveResult, ::loginResult)
         ob(viewModel.liveResult, ::tutorialResult)
+
+        viewPager.setOnScrollChangeListener { view, i, i2, i3, i4 ->
+
+        }
+    }
+
+    private fun setupTutorialViewPager(items: List<Triple<Int, String, String>>) {
+        viewPager.adapter = TutorialAdapter(items)
     }
 
     private fun tutorialResult(result: TutorialViewModel.Result) {
         when (result) {
+            is TutorialViewModel.Result.TutorialItems -> setupTutorialViewPager(result.items)
             is TutorialViewModel.Result.MoveSignUp<*> -> {
                 startActivity(Intent(this, result.activity.java))
             }
@@ -66,7 +76,7 @@ class TutorialActivity : BaseActivity<TutorialViewModel, ActivityTutorialBinding
 
     private fun createTutorialDot() {
         circleIndicator.createDot(
-            3,
+            2,
             R.drawable.tutorial_indicator_dot_off,
             R.drawable.tutorial_indicator_dot_on,
             FIRST_INDEX

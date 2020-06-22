@@ -19,7 +19,7 @@
     <string name="sign_up_step_fourth_subtitle">멤버가 되신 걸 환영합니다!</string>
     <!--tutorial-->
     <string name="tutorial_login">Log in</string>
-    <string name="tutorial_sign_up_email">이메일로 회원가입</string>
+    <string name="tutorial_sign_up_email"><u>이메일로 회원가입</u></string>
     <!--login-->
     <string name="login_title">Hello! 회원님</string>
     <string name="login_subtitle">디디디에 오신걸 정말 환영합니다 :)\n로그인후 이용이 가능합니다.</string>

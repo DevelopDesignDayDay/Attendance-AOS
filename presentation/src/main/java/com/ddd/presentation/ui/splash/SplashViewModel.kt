@@ -1,6 +1,7 @@
 package com.ddd.presentation.ui.splash
 
 import android.app.Activity
+import android.os.Handler
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -19,12 +20,18 @@ class SplashViewModel @Inject constructor(
 
     sealed class Result {
         data class Error(val msg: String) : Result()
+        object FinishLoading : Result()
         data class SuccessSignUp<T : Activity>(val nextActivity: KClass<T>) :
             SplashViewModel.Result()
     }
 
     private val _liveResult = MutableLiveData<Result>()
     val liveResult: LiveData<Result> = _liveResult
+
+    fun isLoading() = Handler().postDelayed({
+        _liveResult.value = Result.FinishLoading
+    }, 1500)
+
 
     fun isLoginUser() {
         (checkCurrentUserUseCase.currentUser())?.let { user ->

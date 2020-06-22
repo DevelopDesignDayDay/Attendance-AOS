@@ -29,12 +29,13 @@ class SplashActivity : BaseActivity<SplashViewModel, ActivitySplashBinding>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel.isLoginUser()
+        viewModel.isLoading()
         ob(viewModel.liveResult, ::result)
     }
 
     fun result(result: SplashViewModel.Result) {
         when (result) {
+            is SplashViewModel.Result.FinishLoading -> viewModel.isLoginUser()
             is SplashViewModel.Result.Error -> toast(result.msg)
             is SplashViewModel.Result.SuccessSignUp<*> -> {
                 startActivity(Intent(this, result.nextActivity.java))

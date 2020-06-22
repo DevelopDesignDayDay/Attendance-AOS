@@ -86,6 +86,7 @@ class SignUpViewModel @Inject constructor(
                     _liveFirstName.value + _liveLastName.value,
                     (_liveResult.value as Result.SelectedPosition).position.name
                 )
+                _liveStep.value = _liveStep.value?.plus(STEP_STATUS_PLUS_VALUE)
                 _liveResult.value = Result.ReplaceFragment(stepFinalFragment)
             } else {
                 _liveResult.value = Result.ToastMessage(LOGIN_SIGN_UP_FAIL_ERROR_MSG)

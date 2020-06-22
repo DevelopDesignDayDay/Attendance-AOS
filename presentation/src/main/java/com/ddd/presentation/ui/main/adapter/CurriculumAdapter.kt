@@ -4,11 +4,14 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ddd.domain.entity.DomainEntity
 
-class CurriculumAdapter(var itemList: List<DomainEntity.Curriculum>) :
+class CurriculumAdapter :
     RecyclerView.Adapter<CurriculumViewHolder>() {
 
+    private var itemList: List<DomainEntity.Curriculum> = emptyList()
+
     fun setItems(curriculumItems: List<DomainEntity.Curriculum>) {
-        itemList = curriculumItems
+        this.itemList = curriculumItems
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CurriculumViewHolder {

@@ -23,11 +23,18 @@
             app:layout_constraintBottom_toTopOf="@+id/constraint_qr_bottom"
             app:layout_constraintTop_toTopOf="parent">
 
+            <View
+                android:layout_width="92dp"
+                android:layout_height="match_parent"
+                android:background="@android:color/white"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_calendar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="24dp"
+                android:layout_marginBottom="20dp"
                 android:paddingStart="64dp"
                 android:paddingEnd="64dp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -49,11 +56,14 @@
                     app:layout_scrollFlags="scroll|exitUntilCollapsed"
                     app:statusBarScrim="@android:color/black">
 
+                    <View
+                        android:layout_width="92dp"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/white" />
+
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/main_background_color"
-                        android:paddingTop="?attr/actionBarSize">
+                        android:layout_height="wrap_content">
 
                         <TextView
                             android:id="@+id/tv_title"
@@ -61,7 +71,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="64dp"
                             android:layout_marginTop="32dp"
-                            android:text="Welcome Back"
+                            android:text="dkdkdkdkdkdk"
                             android:textColor="@color/sign_up_selected_color"
                             android:textSize="24dp"
                             android:textStyle="bold"
@@ -82,10 +92,10 @@
                         <ImageView
                             android:id="@+id/img_card"
                             android:layout_width="0dp"
-                            android:layout_height="300dp"
+                            android:layout_height="wrap_content"
                             android:layout_marginTop="32dp"
                             android:layout_marginEnd="64dp"
-                            android:background="@drawable/selector_sign_in_circle"
+                            android:scaleType="fitXY"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="@+id/tv_subtitle"
                             app:layout_constraintTop_toBottomOf="@+id/tv_subtitle" />
@@ -94,8 +104,8 @@
                             android:id="@+id/tv_calendar"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="65dp"
-                            android:text="Calendar List"
+                            android:layout_marginTop="55dp"
+                            android:text="커리큘럼 리스트"
                             android:textColor="@color/sign_up_selected_color"
                             android:textSize="24dp"
                             android:textStyle="bold"
@@ -104,31 +114,8 @@
                             tools:ignore="SpUsage"
                             tools:text="Calendar List" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
-
-                    <androidx.appcompat.widget.Toolbar
-                        android:id="@+id/toolbar"
-                        android:layout_width="match_parent"
-                        android:layout_height="?attr/actionBarSize"
-                        android:background="@color/main_background_color"
-                        android:elevation="0dp"
-                        app:elevation="0dp"
-                        app:layout_collapseMode="pin"
-                        app:layout_scrollFlags="scroll|enterAlways">
-
-                        <ImageButton
-                            android:id="@+id/img_temp"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_gravity="end"
-                            android:layout_marginTop="16dp"
-                            android:layout_marginEnd="24dp"
-                            android:background="@drawable/circle"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-                    </androidx.appcompat.widget.Toolbar>
                 </com.google.android.material.appbar.CollapsingToolbarLayout>
             </com.google.android.material.appbar.AppBarLayout>
-
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -141,6 +128,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/main_bottom_sheet_background" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -198,7 +186,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="172dp"
             android:gravity="center_horizontal"
-            android:text="This QR code is very safe\nShare to any others"
+            android:text="해당 QR코드를 스탭에게 제시해 주세요"
             android:textColor="@android:color/white"
             android:textSize="15dp"
             android:visibility="gone"

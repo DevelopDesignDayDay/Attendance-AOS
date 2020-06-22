@@ -10,10 +10,49 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@android:color/black"
-        tools:context=".ui.splash.SplashActivity">
+        android:background="@android:color/black">
 
+        <TextView
+            android:id="@+id/tv_designer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="26dp"
+            android:text="Designer"
+            android:textColor="@android:color/white"
+            android:textSize="40dp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_developer"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:ignore="HardcodedText,SpUsage" />
+
+        <TextView
+            android:id="@+id/tv_developer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Developer"
+            android:textColor="@android:color/white"
+            android:textSize="40dp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_day"
+            app:layout_constraintStart_toStartOf="@+id/tv_designer"
+            app:layout_constraintTop_toBottomOf="@+id/tv_designer"
+            tools:ignore="HardcodedText,SpUsage" />
+
+        <TextView
+            android:id="@+id/tv_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="DayDay"
+            android:textColor="@android:color/white"
+            android:textSize="40dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tv_developer"
+            app:layout_constraintTop_toBottomOf="@+id/tv_developer"
+            tools:ignore="HardcodedText,SpUsage" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
