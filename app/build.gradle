@@ -1,11 +1,14 @@
 apply plugin: 'com.android.application'
 apply from: '../android_commons.gradle'
 apply from: '../android_network_dependencies.gradle'
+apply from: '../android_google_service_dependencies.gradle'
+apply plugin: 'com.google.gms.google-services'
 apply plugin: 'kotlin-kapt'
+
 android {
     defaultConfig {
         applicationId ApplicationId.id
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.signup_progress_background.runner.AndroidJUnitRunner"
     }
     dataBinding {
         enabled true
@@ -23,4 +26,9 @@ dependencies {
     implementation Libraries.daggerAndroidSupport
     kapt Libraries.daggerCompiler
     kapt Libraries.daggerProcessor
+
+    implementation Libraries.fireAuth
+    implementation Libraries.firebaseStore
+
+    implementation Libraries.zxing
 }

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/sign_up_on_position_card_background"
+        android:state_selected="true" />
+    <item android:drawable="@drawable/sign_up_off_position_card_background" />
+</selector>

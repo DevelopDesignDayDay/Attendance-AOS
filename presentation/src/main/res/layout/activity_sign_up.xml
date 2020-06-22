@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="signUpViewModel"
+            type="com.ddd.presentation.ui.signup.SignUpViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/main_background_color"
+        tools:context=".ui.signup.SignUpActivity">
+
+        <ProgressBar
+            android:id="@+id/progress_status"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:max="4"
+            android:progress="1"
+            app:currentValue="@{signUpViewModel.liveStep}"
+            android:progressDrawable="@drawable/sign_up_progress_background"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_step"
+            android:fontFamily="@font/roboto_medium"
+            android:layout_width="wrap_content"
+            android:text="@{String.format(@string/sign_up_step_value,signUpViewModel.liveStep)}"
+            android:textColor="@color/sign_up_step_value"
+            android:textSize="12dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@+id/tv_step_end"
+            app:layout_constraintTop_toTopOf="@+id/tv_step_end"
+            tools:ignore="SpUsage" />
+
+        <TextView
+            android:id="@+id/tv_step_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/sign_up_step_max_value"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/sign_up_step_basic"
+            android:textSize="12dp"
+            app:layout_constraintEnd_toEndOf="@+id/progress_status"
+            app:layout_constraintTop_toBottomOf="@+id/progress_status"
+            tools:ignore="SpUsage" />
+
+        <FrameLayout
+            android:id="@+id/frameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_step"
+            tools:ignore="UselessLeaf" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

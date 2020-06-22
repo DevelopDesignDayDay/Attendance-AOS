@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="dim_color">#5c000000</color>
+    <color name="main_background_color">#f5f6fa</color>
+    <!--sign up-->
+    <color name="sign_up_step_basic">#919296</color>
+    <color name="sign_up_step_value">#151515</color>
+    <drawable name="sign_up_off_next_btn">#abb5c5</drawable>
+    <drawable name="sign_up_on_next_btn">#151515</drawable>
+    <!--login-->
+    <color name="login_hint_color">#c5c5ca</color>
+    <color name="login_subtitle_color">#919296</color>
+    <color name="login_circle_off_color">#abb5c5</color>
+    <!--tutorial-->
+    <color name="tutorial_dot_off_color">#d3d3d3</color>
+</resources>

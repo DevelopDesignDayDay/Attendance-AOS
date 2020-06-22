@@ -1,0 +1,8 @@
+apply plugin: 'io.fabric'
+
+dependencies {
+    implementation Libraries.firebaseAnalytics
+    implementation Libraries.firebaseCore
+    implementation Libraries.firebaseCrashlytics
+    implementation Libraries.firebaseMessage
+}

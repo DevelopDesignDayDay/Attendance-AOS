@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+        <variable
+            name="signUpViewModel"
+            type="com.ddd.presentation.ui.signup.SignUpViewModel" />
+
+        <variable
+            name="stepFinalFragment"
+            type="com.ddd.presentation.ui.signup.step.StepFinalFragment" />
+
+        <variable
+            name="designer"
+            type="com.ddd.presentation.ui.signup.Position" />
+
+        <variable
+            name="aos"
+            type="com.ddd.presentation.ui.signup.Position" />
+
+        <variable
+            name="ios"
+            type="com.ddd.presentation.ui.signup.Position" />
+
+        <variable
+            name="backEnd"
+            type="com.ddd.presentation.ui.signup.Position" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_next"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="66dp"
+                    android:text="What is the Position"
+                    android:fontFamily="@font/roboto_thin"
+                    android:textColor="@color/sign_up_selected_color"
+                    android:textSize="24dp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="SpUsage" />
+
+                <TextView
+                    android:id="@+id/tv_subtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="You always can change"
+                    android:textColor="#919296"
+                    android:textSize="15dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_title"
+                    app:layout_constraintVertical_bias="0"
+                    tools:ignore="SpUsage" />
+
+                <com.ddd.common.view.CustomSignUpPositionView
+                    android:id="@+id/custom_container_designer"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="49dp"
+                    android:onClick="@{()->signUpViewModel.selectedPosition(designer)}"
+                    app:layout_constraintBottom_toTopOf="@+id/custom_container_ios"
+                    app:layout_constraintEnd_toStartOf="@+id/custom_container_aos"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_subtitle"
+                    app:position="Designer"
+                    app:positionLogo="@drawable/ic_sign_up_designer" />
+
+                <com.ddd.common.view.CustomSignUpPositionView
+                    android:id="@+id/custom_container_aos"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="28dp"
+                    android:onClick="@{()->signUpViewModel.selectedPosition(aos)}"
+                    app:layout_constraintBottom_toBottomOf="@+id/custom_container_designer"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/custom_container_designer"
+                    app:layout_constraintTop_toTopOf="@+id/custom_container_designer"
+                    app:position="Android Dev"
+                    app:positionLogo="@drawable/ic_sign_up_aos" />
+
+                <com.ddd.common.view.CustomSignUpPositionView
+                    android:id="@+id/custom_container_ios"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="66dp"
+                    android:onClick="@{()->signUpViewModel.selectedPosition(ios)}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/custom_container_backEnd"
+                    app:layout_constraintStart_toStartOf="@+id/custom_container_designer"
+                    app:layout_constraintTop_toBottomOf="@+id/custom_container_designer"
+                    app:position="iOS Dev"
+                    app:positionLogo="@drawable/ic_sign_up_ios" />
+
+                <com.ddd.common.view.CustomSignUpPositionView
+                    android:id="@+id/custom_container_backEnd"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="16dp"
+                    android:onClick="@{()->signUpViewModel.selectedPosition(backEnd)}"
+                    app:layout_constraintBottom_toBottomOf="@+id/custom_container_ios"
+                    app:layout_constraintEnd_toEndOf="@id/custom_container_aos"
+                    app:layout_constraintStart_toEndOf="@+id/custom_container_ios"
+                    app:layout_constraintTop_toTopOf="@+id/custom_container_ios"
+                    app:position="Backend Dev"
+                    app:positionLogo="@drawable/ic_sign_up_server" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminateTint="@android:color/black"
+            android:visibility="@{safeUnbox(signUpViewModel.liveLoading)? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="@{signUpViewModel.liveEnableNextBtn}"
+            android:background="@drawable/selector_sign_up_next"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:onClick="@{()->signUpViewModel.replaceFragment(stepFinalFragment)}"
+            android:paddingTop="24dp"
+            android:paddingBottom="23dp"
+            android:text="@string/sign_up_next"
+            android:textSize="16dp"
+            android:textColor="@android:color/white"
+            app:resultPosition="@{signUpViewModel.liveResult}"
+            tools:ignore="SpUsage" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

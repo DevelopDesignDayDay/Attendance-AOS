@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="20dp">
+
+    <TextView
+        android:id="@+id/tv_calendar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:lineSpacingExtra="0sp"
+        android:textColor="#919296"
+        android:textSize="13dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpUsage"
+        tools:text="October 12" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:lineSpacingExtra="6dp"
+        android:textColor="#151515"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="@+id/tv_calendar"
+        app:layout_constraintTop_toBottomOf="@+id/tv_calendar"
+        tools:text="디디디 커리큘럼 1번째\n오리엔테이션" />
+
+    <ImageView
+        android:id="@+id/img_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_curriculum_detail_info"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_title" />
+</androidx.constraintlayout.widget.ConstraintLayout>
