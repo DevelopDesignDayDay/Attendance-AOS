@@ -2,7 +2,9 @@ package com.ddd.presentation.ui.tutorial
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.lifecycle.ViewModelProvider
+import androidx.viewpager2.widget.ViewPager2
 import com.ddd.common.createViewModel
 import com.ddd.common.ob
 import com.ddd.common.toast
@@ -18,6 +20,7 @@ const val FIRST_INDEX = 0
 
 class TutorialActivity : BaseActivity<TutorialViewModel, ActivityTutorialBinding>() {
     override val layoutResource: Int = R.layout.activity_tutorial
+
     @Inject
     lateinit var factory: ViewModelProvider.Factory
     override val viewModel: TutorialViewModel by lazy {
@@ -40,12 +43,15 @@ class TutorialActivity : BaseActivity<TutorialViewModel, ActivityTutorialBinding
         ob(loginViewModel.liveResult, ::loginResult)
         ob(viewModel.liveResult, ::tutorialResult)
 
-        viewPager.setOnScrollChangeListener { view, i, i2, i3, i4 ->
-
-        }
+        viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                circleIndicator.selectDot(position)
+                super.onPageSelected(position)
+            }
+        })
     }
 
-    private fun setupTutorialViewPager(items: List<Triple<Int, String, String>>) {
+    private fun setupTutorialViewPager(items: List<Triple<String, String, String>>) {
         viewPager.adapter = TutorialAdapter(items)
     }
 

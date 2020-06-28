@@ -39,7 +39,11 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
         ob(viewModel.liveResult, ::result)
 
         val url = FirebaseStorage.getInstance().getReference("banner/1_rM5eV-GbkiHgpD3MV-H6Hg.png")
-        Glide.with(this).load(url).into(img_card)
+        try{
+            Glide.with(this).load(url).into(img_card)
+        }catch (e:Exception){
+            e.printStackTrace()
+        }
     }
 
     fun result(result: MainViewModel.Result) {

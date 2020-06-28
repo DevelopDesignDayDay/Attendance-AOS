@@ -1,6 +1,5 @@
 package com.ddd.data.manager
 
-import android.util.Log
 import com.ddd.common.DDDException
 import com.ddd.common.MessageManager
 import com.ddd.data.entity.DataEntity
@@ -37,7 +36,8 @@ class FirebaseRepositoryImpl @Inject constructor(
                 }
 
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
-                    result(dataSnapshot.value == "true")
+                    val isManager = (dataSnapshot.value as Boolean)
+                    result(isManager)
                 }
             })
     }
@@ -71,7 +71,10 @@ class FirebaseRepositoryImpl @Inject constructor(
                     val item = mutableListOf<DomainEntity.Curriculum>()
                     data.children.forEach {
                         if (it.exists()) {
-                            it.getValue(DomainEntity.Curriculum::class.java)?.let(item::add)
+                            val title = (it.child("title").value as String)
+                            val isDone = (it.child("isDone").value as Boolean)
+                            val date = (it.child("date").value as String)
+                            DomainEntity.Curriculum(date, isDone, title).let(item::add)
                         }
                     }
                     getItems(item)
@@ -87,8 +90,6 @@ class FirebaseRepositoryImpl @Inject constructor(
                 override fun onDataChange(data: DataSnapshot) {
                     val title = (data.child("title").value as String)
                     val subTitle = (data.child("subTitle").value as String)
-                    Log.e("title",title)
-                    Log.e("subTitle",subTitle)
                     DomainEntity.Banner(title, subTitle).let(getItems)
                 }
             })

@@ -16,9 +16,10 @@ class TutorialViewModel @Inject constructor() : ViewModel() {
         const val SECOND_TUTORIAL_TITLE = "스터디 일정체크"
         const val SECOND_TUTORIAL_SUB_TITLE = "세션 날짜와 장소, 시간대까지\n 이제 앱에서 바로 체크하세요 :)"
     }
+
     sealed class Result {
         data class MoveSignUp<T : Activity>(val activity: KClass<T>) : Result()
-        data class TutorialItems(val items: List<Triple<Int, String, String>>) : Result()
+        data class TutorialItems(val items: List<Triple<String, String, String>>) : Result()
     }
 
     private val _liveResult = MutableLiveData<Result>()
@@ -30,12 +31,12 @@ class TutorialViewModel @Inject constructor() : ViewModel() {
 
     private val items = listOf(
         Triple(
-            R.drawable.onboarding_1_character,
+            "step1.json",
             FIRST_TUTORIAL_TITLE,
             FIRST_TUTORIAL_SUB_TITLE
         ),
         Triple(
-            R.drawable.onboarding_2_character,
+            "step2.json",
             SECOND_TUTORIAL_TITLE,
             SECOND_TUTORIAL_SUB_TITLE
         )
