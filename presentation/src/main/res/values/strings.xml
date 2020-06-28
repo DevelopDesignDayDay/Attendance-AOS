@@ -18,7 +18,7 @@
     <string name="sign_up_step_fourth_title">가입이 완료되었습니다 :)</string>
     <string name="sign_up_step_fourth_subtitle">멤버가 되신 걸 환영합니다!</string>
     <!--tutorial-->
-    <string name="tutorial_login">Log in</string>
+    <string name="tutorial_login">로그인</string>
     <string name="tutorial_sign_up_email"><u>이메일로 회원가입</u></string>
     <!--login-->
     <string name="login_title">Hello! 회원님</string>
