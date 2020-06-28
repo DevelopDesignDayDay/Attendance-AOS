@@ -7,6 +7,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import androidx.core.app.NotificationCompat
+import androidx.core.content.ContextCompat
 import com.ddd.R
 import com.ddd.presentation.ui.main.MainActivity
 import com.google.firebase.messaging.FirebaseMessagingService
@@ -21,15 +22,19 @@ class DDDFirebaseMsgService : FirebaseMessagingService() {
     override fun onMessageReceived(remoteMessage: RemoteMessage?) {
         super.onMessageReceived(remoteMessage)
         remoteMessage?.run {
-            sendNotification(notification?.body.orEmpty(), notificationBuilder)
+            sendNotification(
+                notification?.title.orEmpty(),
+                notification?.body.orEmpty(),
+                notificationBuilder
+            )
         } ?: return
     }
 
-    private val notificationBuilder: (channelId: String, msg: String, intent: PendingIntent) -> NotificationCompat.Builder =
-        { channelId, msg, intent ->
+    private val notificationBuilder: (channelId: String, title: String, msg: String, intent: PendingIntent) -> NotificationCompat.Builder =
+        { channelId, title, msg, intent ->
             NotificationCompat.Builder(this, channelId)
-                .setSmallIcon(R.drawable.ic_launcher_foreground)
-                .setContentTitle(getString(R.string.app_name))
+                .setSmallIcon(R.drawable.ic_notification_ddd)
+                .setContentTitle(title)
                 .setContentText(msg)
                 .setAutoCancel(true)
                 .setContentIntent(intent)
@@ -37,8 +42,9 @@ class DDDFirebaseMsgService : FirebaseMessagingService() {
         }
 
     private fun sendNotification(
+        title: String,
         msg: String,
-        notificationBuilder: (channelId: String, msg: String, intent: PendingIntent) -> NotificationCompat.Builder
+        notificationBuilder: (channelId: String, title: String, msg: String, intent: PendingIntent) -> NotificationCompat.Builder
     ) {
         val intent = Intent(this, MainActivity::class.java).apply {
             addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
@@ -58,6 +64,9 @@ class DDDFirebaseMsgService : FirebaseMessagingService() {
             ).let(notificationManager::createNotificationChannel)
         }
 
-        notificationManager.notify(1, notificationBuilder(channelId, msg, pendingIntent).build())
+        notificationManager.notify(
+            1,
+            notificationBuilder(channelId, title, msg, pendingIntent).build()
+        )
     }
 }

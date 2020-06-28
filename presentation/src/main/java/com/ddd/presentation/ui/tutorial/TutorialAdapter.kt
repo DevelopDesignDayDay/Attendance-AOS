@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ddd.presentation.R
 
 class TutorialAdapter(
-    private val items: List<Triple<Int, String, String>>
+    private val items: List<Triple<String, String, String>>
 ) : RecyclerView.Adapter<TutorialViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TutorialViewHolder {
         return LayoutInflater.from(parent.context)

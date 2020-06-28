@@ -1,5 +1,6 @@
 package com.ddd.presentation.ui.main.adapter
 
+import android.util.Log
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ddd.domain.entity.DomainEntity
@@ -10,7 +11,7 @@ class CurriculumAdapter :
     private var itemList: List<DomainEntity.Curriculum> = emptyList()
 
     fun setItems(curriculumItems: List<DomainEntity.Curriculum>) {
-        this.itemList = curriculumItems
+        itemList = curriculumItems
         notifyDataSetChanged()
     }
 

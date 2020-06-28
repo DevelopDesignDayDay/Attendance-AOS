@@ -1,3 +1,5 @@
+import Versions.lottieVersion
+
 object ApplicationId {
     val id = "com.ddd"
 }
@@ -11,7 +13,7 @@ object Modules {
 }
 
 object Releases {
-    val versionCode = 1
+    val versionCode = 6
     val versionName = "1.0"
 }
 
@@ -45,11 +47,12 @@ object Versions {
     val firebaseStorage = "19.1.1"
     val fireAuth = "19.0.0"
     val zxing ="3.6.0"
+    val lottieVersion ="3.4.1"
 }
 
 object Libraries {
     val zxing = "com.journeyapps:zxing-android-embedded:${Versions.zxing}"
-
+    val lottie = "com.airbnb.android:lottie:$lottieVersion"
     // Google Service
     val firebaseAnalytics = "com.google.firebase:firebase-analytics:${Versions.analytics}"
     val fireAuth = "com.google.firebase:firebase-auth:${Versions.fireAuth}"
