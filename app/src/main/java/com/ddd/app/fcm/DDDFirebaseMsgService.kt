@@ -33,10 +33,9 @@ class DDDFirebaseMsgService : FirebaseMessagingService() {
     private val notificationBuilder: (channelId: String, title: String, msg: String, intent: PendingIntent) -> NotificationCompat.Builder =
         { channelId, title, msg, intent ->
             NotificationCompat.Builder(this, channelId)
-                .setSmallIcon(R.drawable.ic_launcher_round)
+                .setSmallIcon(R.drawable.ic_notification_ddd)
                 .setContentTitle(title)
                 .setContentText(msg)
-                .setColor(ContextCompat.getColor(this,R.color.login_hint_color))
                 .setAutoCancel(true)
                 .setContentIntent(intent)
 
