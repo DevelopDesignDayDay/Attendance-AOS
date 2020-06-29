@@ -38,7 +38,7 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
 
         ob(viewModel.liveResult, ::result)
 
-        val url = FirebaseStorage.getInstance().getReference("banner/1_rM5eV-GbkiHgpD3MV-H6Hg.png")
+        val url = FirebaseStorage.getInstance().getReference("banner/banner.png")
         try{
             Glide.with(this).load(url).into(img_card)
         }catch (e:Exception){
