@@ -13,7 +13,7 @@ object Modules {
 }
 
 object Releases {
-    val versionCode = 10
+    val versionCode = 11
     val versionName = "1.2"
 }
 

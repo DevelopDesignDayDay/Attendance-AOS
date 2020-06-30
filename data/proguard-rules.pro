@@ -23,10 +23,10 @@
 
    # Add this global rule
     -keepattributes Signature
-
+    -keep public class com.ddd.data.entity.DataEntity.*
     # This rule will properly ProGuard all the model classes in
     # the package com.yourcompany.models. Modify to fit the structure
     # of your app.
-    -keepclassmembers class com.ddd.data.entity.DataEntity.UserEntity{
+    -keepclassmembers class com.ddd.data.entity.DataEntity{
       *;
     }
