@@ -21,12 +21,12 @@
 #-renamesourcefileattribute SourceFile
 
 
-# Add this global rule(firebase DataBase)
+   # Add this global rule
     -keepattributes Signature
 
     # This rule will properly ProGuard all the model classes in
     # the package com.yourcompany.models. Modify to fit the structure
     # of your app.
-    -keepclassmembers class com.ddd.** {
+    -keepclassmembers class com.ddd.data.entity.DataEntity.UserEntity{
       *;
     }
