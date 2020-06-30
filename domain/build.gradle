@@ -3,7 +3,18 @@ apply from: '../android_commons.gradle'
 apply from: '../android_core_dependencies.gradle'
 apply from: '../android_network_dependencies.gradle'
 apply plugin: 'kotlin-kapt'
-
+android{
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
 dependencies {
     implementation project(Modules.common)
 
