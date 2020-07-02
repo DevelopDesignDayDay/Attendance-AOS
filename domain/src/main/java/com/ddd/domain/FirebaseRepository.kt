@@ -4,6 +4,7 @@ import com.ddd.common.DDDException
 import com.ddd.domain.entity.DomainEntity
 
 interface FirebaseRepository {
+    fun signOut()
     fun saveUser(email: String, name: String, position: String, isManager: Boolean)
     fun isManager(uuid: String, result: (Boolean) -> Unit, error: (DDDException) -> Unit)
     fun saveAttendance(

@@ -20,6 +20,11 @@ class FirebaseRepositoryImpl @Inject constructor(
     private val db: DatabaseReference,
     private val auth: FirebaseAuth
 ) : FirebaseRepository {
+
+    override fun signOut() {
+        auth.signOut()
+    }
+
     override fun saveUser(email: String, name: String, position: String, isManager: Boolean) {
         db.child(QUERY_USERS)
             .child(auth.currentUser?.uid.orEmpty())
@@ -30,7 +35,7 @@ class FirebaseRepositoryImpl @Inject constructor(
         db.child(QUERY_USERS)
             .child(uuid)
             .child(QUERY_MANAGER)
-            .addListenerForSingleValueEvent(object : ValueEventListener {
+            .addValueEventListener(object : ValueEventListener {
                 override fun onCancelled(error: DatabaseError) {
                     error(DDDException.NotFindDataBaseData(MessageManager.ERROR_NOT_FOUND_FIREBASE_DATABASE_DATA))
                 }
@@ -64,7 +69,7 @@ class FirebaseRepositoryImpl @Inject constructor(
 
     override fun getCurriculum(getItems: (List<DomainEntity.Curriculum>) -> Unit) {
         db.child("curriculum")
-            .addListenerForSingleValueEvent(object : ValueEventListener {
+            .addValueEventListener(object : ValueEventListener {
                 override fun onCancelled(p0: DatabaseError) {}
 
                 override fun onDataChange(data: DataSnapshot) {
@@ -84,8 +89,8 @@ class FirebaseRepositoryImpl @Inject constructor(
 
     override fun getBannerData(getItems: (DomainEntity.Banner) -> Unit) {
         db.child("banner")
-            .addListenerForSingleValueEvent(object : ValueEventListener {
-                override fun onCancelled(p0: DatabaseError) {}
+            .addValueEventListener(object : ValueEventListener {
+                override fun onCancelled(p0: DatabaseError) = Unit
 
                 override fun onDataChange(data: DataSnapshot) {
                     val title = (data.child("title").value as String)

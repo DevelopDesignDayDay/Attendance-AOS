@@ -39,15 +39,18 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
         ob(viewModel.liveResult, ::result)
 
         val url = FirebaseStorage.getInstance().getReference("banner/banner.png")
-        try{
+        try {
             Glide.with(this).load(url).into(img_card)
-        }catch (e:Exception){
+        } catch (e: Exception) {
             e.printStackTrace()
         }
     }
 
     fun result(result: MainViewModel.Result) {
         when (result) {
+            is MainViewModel.Result.MoveDetailImage -> {
+                Intent(this, ImageDetailActivity::class.java).let(::startActivity)
+            }
             is MainViewModel.Result.Banner -> {
                 tv_title.text = result.title
                 tv_subtitle.text = result.subTitle

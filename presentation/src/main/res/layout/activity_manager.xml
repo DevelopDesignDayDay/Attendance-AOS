@@ -15,26 +15,60 @@
         android:background="@color/main_background_color"
         tools:context=".ui.manager.ManagerActivity">
 
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_check_attendance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@android:color/darker_gray"
+            android:gravity="center"
+            android:onClick="@{()->managerViewModel.moveCheckAttendance()}"
+            android:padding="15dp"
+            android:text="출석확인하기"
+            android:textSize="17dp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="HardcodedText,SpUsage" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_logout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@android:color/darker_gray"
+            android:gravity="center"
+            android:onClick="@{()->managerViewModel.logout()}"
+            android:padding="15dp"
+            android:text="로그아웃"
+            android:textSize="17dp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/btn_check_attendance"
+            tools:ignore="HardcodedText,SpUsage" />
 
         <TextView
             android:id="@+id/tv_description"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
             android:gravity="center_horizontal"
             android:text="오늘의 출석 시작 시간은 몇시인가요?"
             android:textColor="@color/sign_up_selected_color"
             android:textSize="16dp"
-            android:layout_marginBottom="16dp"
             app:layout_constraintBottom_toTopOf="@+id/tv_attend_start_time"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_logout"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:ignore="HardcodedText,SpUsage" />
 
         <TextView
             android:id="@+id/tv_attend_start_time"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
             android:background="@drawable/sign_up_input_background"
             android:drawableEnd="@drawable/ic_bottom_arrow"
@@ -42,15 +76,14 @@
             android:paddingTop="15dp"
             android:paddingEnd="16dp"
             android:paddingBottom="15dp"
-            android:layout_marginStart="16dp"
             android:text="@{managerViewModel.liveDate}"
             android:textColor="@color/sign_up_selected_color"
             android:textSize="16dp"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintEnd_toEndOf="@+id/tv_description"
             app:layout_constraintBottom_toTopOf="@+id/btn_start_qr_code"
+            app:layout_constraintEnd_toEndOf="@+id/tv_description"
             app:layout_constraintStart_toStartOf="@+id/tv_description"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_description"
+            app:layout_constraintVertical_bias="0"
             tools:ignore="SpUsage" />
 
         <Button

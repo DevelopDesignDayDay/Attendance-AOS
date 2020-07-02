@@ -25,6 +25,7 @@ class MainViewModel @Inject constructor(
         data class InitQRCode(val qrcode: Bitmap) : Result()
         data class Curriculum(val items: List<DomainEntity.Curriculum>) : Result()
         data class LoginActivity<T>(val nextActivity: Class<T>) : Result()
+        object MoveDetailImage: Result()
     }
 
     private val _liveResult = MutableLiveData<Result>()
@@ -49,8 +50,7 @@ class MainViewModel @Inject constructor(
         }
     }
 
-    fun tempLogout() {
-        auth.signOut()
+    fun onClickDetailImage(){
+        _liveResult.value = Result.MoveDetailImage
     }
-
 }

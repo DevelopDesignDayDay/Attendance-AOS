@@ -1,6 +1,5 @@
 package com.ddd.domain
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.Dispatchers

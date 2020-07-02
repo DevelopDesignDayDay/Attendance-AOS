@@ -36,4 +36,6 @@ dependencies {
     implementation Libraries.lottie
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta2'
     implementation 'com.firebaseui:firebase-ui-storage:3.3.0'
+
+    implementation 'com.davemorrissey.labs:subsampling-scale-image-view-androidx:3.10.0'
 }
