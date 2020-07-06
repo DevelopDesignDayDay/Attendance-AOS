@@ -58,7 +58,7 @@ class ManagerActivity : BaseActivity<ManagerViewModel, ActivityManagerBinding>()
     private val result: (ManagerViewModel.Navigation) -> Unit = {
         when (it) {
             is ManagerViewModel.Navigation.MoveCheckAttendance -> {
-
+                    Intent(this,MoveCheckAttendance::class.java).let(::startActivity)
             }
 
             is ManagerViewModel.Navigation.MoveLoginActivity -> {

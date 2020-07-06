@@ -15,4 +15,5 @@ interface FirebaseRepository {
     )
     fun getCurriculum(getItems:(List<DomainEntity.Curriculum>)->Unit)
     fun getBannerData(getItems: (DomainEntity.Banner) -> Unit)
+    fun searchName(name: String,getItems: (List<DomainEntity.UserEntity>) -> Unit)
 }

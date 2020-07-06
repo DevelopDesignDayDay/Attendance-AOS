@@ -1,5 +1,6 @@
 package com.ddd.data.manager
 
+import android.util.Log
 import com.ddd.common.DDDException
 import com.ddd.common.MessageManager
 import com.ddd.data.entity.DataEntity
@@ -96,6 +97,29 @@ class FirebaseRepositoryImpl @Inject constructor(
                     val title = (data.child("title").value as String)
                     val subTitle = (data.child("subTitle").value as String)
                     DomainEntity.Banner(title, subTitle).let(getItems)
+                }
+            })
+    }
+
+    override fun searchName(name: String,getItems: (List<DomainEntity.UserEntity>) -> Unit) {
+        db.child(QUERY_USERS)
+            .addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onCancelled(p0: DatabaseError) = Unit
+
+                override fun onDataChange(p0: DataSnapshot) {
+
+                    val result = p0.children.fold(mutableListOf<DomainEntity.UserEntity>()) { acc, dataSnapshot ->
+                        Log.e("data",dataSnapshot.child("name").value.toString())
+                        if(dataSnapshot.child("name").value as String == name){
+                            val email = (dataSnapshot.child("email").value as String)
+                            val userName = (dataSnapshot.child("name").value as String)
+                            val position = (dataSnapshot.child("position").value as String)
+                            val isManager = (dataSnapshot.child("isManager").value as Boolean)
+                            acc.add(DomainEntity.UserEntity(email, userName, position, isManager))
+                        }
+                        acc
+                    }
+                    getItems(result)
                 }
             })
     }

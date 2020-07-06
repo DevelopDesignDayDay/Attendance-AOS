@@ -14,4 +14,12 @@ sealed class DomainEntity {
         val title: String,
         val subTitle: String
     ) : DomainEntity()
+
+    @IgnoreExtraProperties
+    data class UserEntity(
+        val email: String = "",
+        val name: String = "",
+        val position: String = "",
+        val isManager: Boolean = false
+    ) : DomainEntity()
 }

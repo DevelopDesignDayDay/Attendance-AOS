@@ -44,8 +44,6 @@ class MainViewModel @Inject constructor(
             _liveResult.value = Result.Curriculum(it)
         }
         getBannerUseCase.invoke {
-            Log.e("title",it.title)
-            Log.e("subTitle",it.subTitle)
             _liveResult.value = Result.Banner(it.title,it.subTitle)
         }
     }

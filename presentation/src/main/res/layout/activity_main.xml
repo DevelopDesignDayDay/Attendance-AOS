@@ -71,7 +71,6 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="64dp"
                             android:layout_marginTop="32dp"
-                            android:text="dkdkdkdkdkdk"
                             android:textColor="@color/sign_up_selected_color"
                             android:textSize="24dp"
                             android:textStyle="bold"

@@ -3,7 +3,8 @@
     package="com.ddd.presentation">
 
     <application>
-        <activity android:name=".ui.main.ImageDetailActivity"></activity>
+        <activity android:name=".ui.manager.MoveCheckAttendance"></activity>
+        <activity android:name=".ui.main.ImageDetailActivity" />
         <activity android:name=".ui.manager.ManagerActivity" />
         <activity android:name=".ui.tutorial.TutorialActivity" />
         <activity android:name=".ui.splash.SplashActivity" />
