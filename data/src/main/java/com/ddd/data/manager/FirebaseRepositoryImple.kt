@@ -115,7 +115,14 @@ class FirebaseRepositoryImpl @Inject constructor(
                             val userName = (dataSnapshot.child("name").value as String)
                             val position = (dataSnapshot.child("position").value as String)
                             val isManager = (dataSnapshot.child("isManager").value as Boolean)
-                            acc.add(DomainEntity.UserEntity(email, userName, position, isManager))
+                            val items = mutableListOf<DomainEntity.Attendance>()
+                            val timeValue = dataSnapshot.child("attendance").value
+                            if(timeValue!=null){
+                                dataSnapshot.child("attendance").children.forEach {
+                                    items.add(DomainEntity.Attendance(it.key?.toLong()?:0L, it.child("result").value as String))
+                                }
+                            }
+                            acc.add(DomainEntity.UserEntity(email, userName, position, isManager,items))
                         }
                         acc
                     }

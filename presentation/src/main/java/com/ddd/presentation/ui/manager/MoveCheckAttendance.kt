@@ -3,6 +3,7 @@ package com.ddd.presentation.ui.manager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.ViewModelProvider
 import com.ddd.common.createViewModel
@@ -53,7 +54,7 @@ class MoveCheckAttendance :
             is MoveCheckAttendanceViewModel.Result.Data -> {
                 val items = result.items
                 if (items.isNullOrEmpty()) {
-
+                    Toast.makeText(this, "존재하지 않습니다.", Toast.LENGTH_SHORT).show()
                 } else {
                     rv.adapter = CheckAttendanceAdapter().also {
                         it.setItems(items)

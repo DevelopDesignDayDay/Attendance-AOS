@@ -27,8 +27,10 @@
             android:id="@+id/rv"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:layout_marginTop="8dp"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/search_input" />
+            app:layout_constraintTop_toBottomOf="@+id/search_input"
+            app:spanCount="2" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

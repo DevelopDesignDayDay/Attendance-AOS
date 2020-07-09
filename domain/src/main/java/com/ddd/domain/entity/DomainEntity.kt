@@ -20,6 +20,12 @@ sealed class DomainEntity {
         val email: String = "",
         val name: String = "",
         val position: String = "",
-        val isManager: Boolean = false
+        val isManager: Boolean = false,
+        val attendance: List<Attendance>
+    ) : DomainEntity()
+
+    data class Attendance(
+        val realTime: Long,
+        val result: String = "1"
     ) : DomainEntity()
 }
